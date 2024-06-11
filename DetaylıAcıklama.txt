@@ -1,0 +1,41 @@
+### Sayfalar ve İşlevleri:
+
+1. **App.js**:
+   - Ana bileşen olarak uygulamanın temel yapısını oluşturur.
+   - Kullanıcıların sepete eklediği ürünleri gösterir ve yönetir.
+   - `handleToggle` fonksiyonu:
+     - Kullanıcının sepete eklediği ürünleri seçmesini sağlar.
+     - Bir ürün seçildiğinde, `checked` state'i güncellenir ve seçilen ürünler listelenir.
+     - Seçilen ürünlerin toplam fiyatı hesaplanır.
+   - `anotherFunction` fonksiyonu:
+     - Sepete eklenen ürünlerin sku değerlerini konsola yazdırır.
+   - `totalPrice` state'i ve `sumTotalPrice` fonksiyonu:
+     - Sepetteki ürünlerin toplam fiyatını hesaplar ve gösterir.
+   - `groupedData` state'i:
+     - Alışveriş sepetindeki verileri satıcı ve ürün adına göre gruplar.
+
+2. **ProductList.js**:
+   - Alışveriş sepetindeki ürünleri listeler.
+   - `handleAdd` ve `handleRemove` fonksiyonları:
+     - Kullanıcının bir ürünün miktarını artırmasını veya azaltmasını sağlar.
+     - Ürün miktarı güncellendiğinde, `quantityChange` state'i güncellenir ve yeni miktar ekranda gösterilir.
+   - `quantityChange` state'i:
+     - Bir ürünün miktarını tutar.
+   - `handleToggle` fonksiyonu:
+     - Kullanıcının bir ürünü seçmesini sağlar.
+   - Ürün bilgilerini ve fiyatlarını gösterir.
+
+3. **CartSummary.js**:
+   - Sepet özetini gösterir.
+   - `anotherFunction` fonksiyonu:
+     - Alışverişi tamamlama işlemini gerçekleştirir.
+     - Sepete eklenen ürünlerin sku değerlerini konsola yazdırır.
+   - Sepette seçili ürün sayısını ve toplam fiyatını gösterir.
+
+### State Yönetimi ve Veri Aktarımı:
+
+- `useState` hook'u kullanılarak state yönetimi sağlanır.
+- Ana bileşen olan `App.js`, `ProductList.js` ve `CartSummary.js` arasında state ve fonksiyonlar prop olarak aktarılır.
+- `ProductList.js` içindeki `handleAdd` ve `handleRemove` fonksiyonları, ürün miktarını güncellediğinde bu değişiklik `quantityChange` state'ine yansır ve güncel miktar ekranda gösterilir.
+- `App.js` içindeki `handleToggle` fonksiyonu, sepete eklenen ürünleri seçmek için kullanılır. Bu seçimler `checked` state'inde tutulur ve `ProductList.js` bileşenine prop olarak iletilir.
+- `CartSummary.js` bileşenindeki `anotherFunction` fonksiyonu, alışverişi tamamlama işlemini gerçekleştirir ve bu fonksiyon `App.js` bileşeninde tanımlanmıştır.
