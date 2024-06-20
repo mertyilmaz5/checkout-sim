@@ -19,6 +19,7 @@
    - `handleAdd` ve `handleRemove` fonksiyonları:
      - Kullanıcının bir ürünün miktarını artırmasını veya azaltmasını sağlar.
      - Ürün miktarı güncellendiğinde, `quantityChange` state'i güncellenir ve yeni miktar ekranda gösterilir.
+     - Seçim kaldırılır.(Sepet tutarı güncellemek için)
    - `quantityChange` state'i:
      - Bir ürünün miktarını tutar.
    - `handleToggle` fonksiyonu:
