@@ -24,14 +24,26 @@ function ProductList({ products, checked, handleToggle }) {
   const handleAdd = (value) => {
     return () => {
       setquantityChange(quantityChange + 1);
-      alert(value.cartLine.sku + " numaralı ürünün adedi 1 arttırıldı.");
+      alert(value.cartLine.sku + " numaralı ürünün adedi 1 arttırıldı. Seçimleriniz güncellendi.");
+      // Ürün miktarı arttığında, checked olan ürünleri unchecked yap
+      checked.forEach((item) => {
+        if (item === value) {
+          handleToggle(item)();
+        }
+      });
     };
   };
 
   const handleRemove = (value) => {
     return () => {
       setquantityChange(quantityChange - 1);
-      alert(value.cartLine.sku + " numaralı ürünün adedi 1 azaltıldı.");
+      alert(value.cartLine.sku + " numaralı ürünün adedi 1 azaltıldı. Seçimleriniz güncellendi.");
+      // Ürün miktarı azaldığında, checked olan ürünleri unchecked yap
+      checked.forEach((item) => {
+        if (item === value) {
+          handleToggle(item)();
+        }
+      });
     };
   };
 
